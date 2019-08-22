@@ -1,0 +1,10 @@
+<%= form_for(:admin, url:login_index_path) do |f| %>
+
+  <%= f.label :admin %>
+  <%= f.password_field :pass %>
+  <%#ここにremember_meいれたい%>
+  <%= f.submit "log_in" %>
+  <p>答え：なんでここにログインフォームが</p>
+<% end %>
+
+<%= link_to 'log_out', logout_path , method: :delete %>

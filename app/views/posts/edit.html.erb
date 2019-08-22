@@ -1,0 +1,30 @@
+<%= form_for(@post) do |f| %>
+
+<%= f.file_field :picture, id: :picture_img, accept:'image/jpeg,image/png,image/gif' %>
+<script type="text/javascript">
+  $(function() {
+    function readURL(input) {
+        if (input.files && input.files[0]) {
+        var reader = new FileReader();
+        reader.onload = function (e) {
+    $('#picture_prev').attr('src', e.target.result);
+        }
+        reader.readAsDataURL(input.files[0]);
+        }
+    }
+    $("#picture_img").change(function(){
+        readURL(this);
+    });
+  });
+</script>
+<%= f.text_area :content %>
+<% if @post.picture.present? %>
+  <%= image_tag @post.picture.url, id: :picture_prev %>
+<% else %>
+  <%= image_tag "5b6479af", id: :picture_prev %>
+<% end %>
+
+<p><%= f.check_box :remove_picture %>画像を削除する</p>
+
+<%= f.submit "hensyuu" %><%= link_to 'やっぱりやめる', root_path %>
+<% end %>

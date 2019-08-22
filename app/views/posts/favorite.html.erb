@@ -1,0 +1,4 @@
+<% @favorite.each do |fav| %>
+  <% post = Post.find_by(id:fav.post_id) %>
+    <%= render post %>
+  <% end %>

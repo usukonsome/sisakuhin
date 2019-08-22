@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>NilBoard</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <% flash.each do |message_type, message| %>
+      <%= content_tag(:div, message, class: "alert alert-#{message_type}") %>
+    <% end %>
+    <% if @admin %>
+      <p>管理者モード展開中</p>
+    <% end %>
+    <%= @current_user.name %><%#リリースする前にかならず消す%>
+    <%= link_to 'top', root_path %>
+    <%= link_to '投稿', new_post_path %>
+    <%= link_to '私の作品', mypost_path %>
+    <%= link_to 'お気に入り',favorite_path %>
+    <%= link_to 'お問い合わせ',contact_path %>
+    <%= link_to '管理者用',new_login_path %>
+    <%= yield %>
+  </body>
+</html>

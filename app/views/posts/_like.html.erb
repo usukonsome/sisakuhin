@@ -1,0 +1,7 @@
+<% if Like.find_by(user_id: @current_user.id, post_id: post.id) %>
+  <%= link_to("いいねしてましたね",like_path(id: post.id), method: :delete, remote: true) %>
+  <%= post.likes.count %>
+<% else %>
+  <%= link_to("iinekana",likes_path(id: post.id), method: :post, remote: true) %>
+  <%= post.likes.count %>
+<% end %>

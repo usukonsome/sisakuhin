@@ -1,0 +1,12 @@
+<%= image_tag post.picture.url if post.picture? %>
+<%= post.content %>
+<div id="post_form_<%= post.id %>">
+  <%= render 'posts/like',  post: post%>
+</div>
+<% if post.user_id == @current_user.id %>
+  <%= link_to 'hen', edit_post_path(post) %>
+<% end %>
+<% if post.user_id == @current_user.id or @kanri %>
+  <%= link_to '消す', post, method: :delete, data: { confirm: "消すの？"} %>
+<% end %>
+<%= post.created_at %>
