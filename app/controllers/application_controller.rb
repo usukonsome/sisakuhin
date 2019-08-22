@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
+  include PostsHelper
 
   def current_user
     session[:user] ||= request.remote_ip
