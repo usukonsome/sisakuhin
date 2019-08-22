@@ -30,6 +30,7 @@ Rails.application.configure do
   # Do not fallback to assets pipeline if a precompiled asset is missed.
   config.assets.compile = true
   #画像が本番環境で表示されない時はここの設定要確認
+  #assetsの中のコレクションの認可を決める
 
   # `config.assets.precompile` and `config.assets.version` have moved to config/initializers/assets.rb
 
