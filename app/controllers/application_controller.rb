@@ -12,7 +12,7 @@ class ApplicationController < ActionController::Base
         @current_user = user
       end
     elsif (@current_user == nil)
-      name = SecureRandom.urlsafe_base64
+      name = request.remote_ip
       user = User.create(name: name)
       session[:user_id] = user.id
       remember(user)
