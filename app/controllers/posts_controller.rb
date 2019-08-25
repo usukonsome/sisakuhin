@@ -60,7 +60,7 @@ private
 
   def correct_user
     @post = Post.find(params[:id])
-    if @post.user_id != @current_user.id
+    if !current_user?(@post) && @admin == nil
       flash[:notice] = "権限がありません"
       redirect_to root_path
     end
