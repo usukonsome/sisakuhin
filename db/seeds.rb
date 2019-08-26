@@ -5,4 +5,7 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-Admin.create!(pass:"なんでここにログインフォームが")
+Admin.create!(pass:"なんでここにログインフォームが",
+              password: "なんでここにログインフォームが",
+              password_confirmation: "なんでここにログインフォームが",
+              password_digest: User.digest("なんでここにログインフォームが"))

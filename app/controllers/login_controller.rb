@@ -6,8 +6,9 @@ class LoginController < ApplicationController
   end
 
   def create
-    session[:admin] = Admin.find_by(pass: params[:admin][:pass])
-    if session[:admin]
+    admin = Admin.find_by(pass: params[:admin][:pass])
+    if admin && admin.authenticate(params[:admin][:password])
+      session[:admin] = admin.id
       redirect_to root_path
     else
       flash[:notice] = '権限がありません'
