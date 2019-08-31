@@ -9,3 +9,4 @@ Admin.create!(pass:"なんでここにログインフォームが",
               password: "なんでここにログインフォームが",
               password_confirmation: "なんでここにログインフォームが",
               password_digest: User.digest("なんでここにログインフォームが"))
+#めっちゃ情報漏えいしてるのでリリース前に消す
