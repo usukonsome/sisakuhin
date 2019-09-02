@@ -7,6 +7,6 @@ class SendingMailMailer < ApplicationMailer
   #
   def contact
   @faq = Faq.last
-    mail to: ENV["E_mail"], subject: "アプリからのお問い合わせがあるよ"
-  end#ここgitには登録しない
+    mail to: ENV["E_mail"], subject: "アプリへのお問い合わせがあるよ"
+  end#heroku config:set E_mail="  "
 end

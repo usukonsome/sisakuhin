@@ -2,11 +2,7 @@ class User < ApplicationRecord
   attr_accessor :remember_token
   has_many :posts, dependent: :destroy
   has_many :likes, dependent: :destroy
-  has_many :posts, through: :likes
-  #今のところ必要ない完成しても不必要なら消す。いいね先のコンテンツを直接表示ならいる
-  #またはいいねを配列にしてpostをそこに代入する形ならあるいは
-
-
+  
   def User.digest(string)
     BCrypt::Password.create(string)#ここをfooに変えてみる
   end

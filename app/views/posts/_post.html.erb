@@ -1,4 +1,4 @@
-<%= image_tag post.picture.url if post.picture? %>
+<%= link_to image_tag(post.picture.url),post_path(post) if post.picture? %>
 <%= post.content %>
 <div id="post_form_<%= post.id %>">
   <%= render 'posts/like',  post: post%>

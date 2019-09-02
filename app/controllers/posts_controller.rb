@@ -19,11 +19,11 @@ class PostsController < ApplicationController
   end
 
   def index
-    redirect_to root_path
   end
 
   def show
-    redirect_to root_path
+    @post = Post.find(params[:id])
+    redirect_to root_path unless @post.picture?
   end
 
   def mypost
