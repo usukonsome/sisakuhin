@@ -7,6 +7,6 @@ class SendingMailMailer < ApplicationMailer
   #
   def contact
   @faq = Faq.last
-    mail to: "asa-house@rose.plala.or.jp", subject: "アプリからのお問い合わせがあるよ"
+    mail to: <%= ENV["E_mail"] %>, subject: "アプリからのお問い合わせがあるよ"
   end#ここgitには登録しない
 end
