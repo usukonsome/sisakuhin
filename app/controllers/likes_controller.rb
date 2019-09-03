@@ -3,7 +3,7 @@ class LikesController < ApplicationController
 
   def create
     @post = Post.find(params[:id])
-    Like.create!(post_id: @post.id,user_digest: @current_user.digest)
+    Like.create(post_id: @post.id,user_digest: @current_user.digest)
   end
 
   def destroy
