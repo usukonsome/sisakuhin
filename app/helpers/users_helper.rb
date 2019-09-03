@@ -7,6 +7,6 @@ module UsersHelper
   end
 
   def current_user?(post)
-    post.user_id == @current_user.id
+    post.name == @current_user.digest
   end
 end

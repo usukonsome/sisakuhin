@@ -9,6 +9,7 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.new(post_params)
+    @post.name = @current_user.digest
     @post.user_id = @current_user.id
     if @post.save
       redirect_to root_path
@@ -27,11 +28,11 @@ class PostsController < ApplicationController
   end
 
   def mypost
-    @my_items = Post.where(user_id: @current_user.id)
+    @my_items = Post.where(name: @current_user.digest)
   end
 
   def favorite
-    @favorite = Like.where(user_id: @current_user.id)
+    @favorite = Like.where(id: @current_user.id)
   end
 
   def edit

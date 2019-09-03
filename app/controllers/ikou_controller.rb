@@ -11,9 +11,9 @@ class IkouController < ApplicationController
     @user = User.find_by(digest: params[:ikou][:digest])
     #form_forで宛先をシンボルにした場合はparamsにも書いてあげないとデータが迷子になる
     if @user
-      @posts = Post.where(user_id: @user.id)
+      @posts = Post.where(name: @user.digest)
       @posts.each do |post|
-        post.user_id = @current_user.id
+        post.name = @current_user.digest
         post.save
       end
     else
