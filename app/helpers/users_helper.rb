@@ -1,8 +1,8 @@
 module UsersHelper
 
   def remember(user)
-    user.remember
-    cookies.permanent.signed[:user_id] = user.id
+    #user.remember
+    cookies.permanent[:user_id] = user.id
     cookies.permanent[:digest] = user.digest
   end
 
