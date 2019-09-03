@@ -1,7 +1,7 @@
 class User < ApplicationRecord
   attr_accessor :remember_token
   has_many :posts, dependent: :destroy
-  has_many :likes, dependent: :destroy
+  #has_many :likes, dependent: :destroy
 
   def User.digest(string)
     BCrypt::Password.create(string)#ここをfooに変えてみる

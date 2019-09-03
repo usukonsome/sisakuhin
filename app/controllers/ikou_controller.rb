@@ -13,7 +13,7 @@ class IkouController < ApplicationController
     if @user
       @posts = Post.where(name: @user.digest)
       @current_user.digest = @user.digest
-      @current_user.save
+      @current_user.save#これ忘れると更新されない
       @posts.each do |post|
         post.name = @current_user.digest
         post.save

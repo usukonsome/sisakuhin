@@ -32,7 +32,7 @@ class PostsController < ApplicationController
   end
 
   def favorite
-    @favorite = Like.where(id: @current_user.id)
+    @favorite = Like.where(user_digest: @current_user.digest)
   end
 
   def edit
