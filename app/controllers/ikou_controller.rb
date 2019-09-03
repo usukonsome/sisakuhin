@@ -12,6 +12,8 @@ class IkouController < ApplicationController
     #form_forで宛先をシンボルにした場合はparamsにも書いてあげないとデータが迷子になる
     if @user
       @posts = Post.where(name: @user.digest)
+      @current_user.digest = @user.digest
+      @current_user.save
       @posts.each do |post|
         post.name = @current_user.digest
         post.save
