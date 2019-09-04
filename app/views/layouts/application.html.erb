@@ -13,10 +13,10 @@
     <% flash.each do |message_type, message| %>
       <%= content_tag(:div, message, class: "alert alert-#{message_type}") %>
     <% end %>
-    <% if @admin %>
+    <% if admin %>
       <p>管理者モード展開中</p>
     <% end %>
-    <p>(<%= @current_user.id %>)</p><%= @current_user.name %><%#リリースする前にかならず消す%>
+    <p>(<%= current_user.id %>)</p><%= @current_user.name %><%#リリースする前にかならず消す%>
     <%= link_to 'top', root_path %>
     <%= link_to '投稿', new_post_path %>
     <%= link_to '私の作品', mypost_path %>

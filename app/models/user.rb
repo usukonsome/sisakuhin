@@ -1,6 +1,6 @@
 class User < ApplicationRecord
-  attr_accessor :remember_token
-  has_many :posts, dependent: :destroy
+  #attr_accessor :remember_token #remenber認証が必要になったら浮上させて
+  #has_many :posts, dependent: :destroy
   #has_many :likes, dependent: :destroy
 
   def User.digest(string)

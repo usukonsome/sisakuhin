@@ -1,5 +1,4 @@
 class FaqsController < ApplicationController
-  before_action :current_user
 
   def new
     @faq = Faq.new
@@ -30,4 +29,4 @@ end
 
 #ひんと：うまくクリエイト出来ない場合
 #1.createに!付けて例外発生させて理由を見る
-#2.params.requireをプライベートに置く
+#2.params.requireをプライベートに置く(世間ではStrongParameterといいます)

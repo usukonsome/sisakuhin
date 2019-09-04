@@ -1,5 +1,5 @@
 class IkouController < ApplicationController
-  before_action :current_user
+
   def new
   end
 
@@ -11,23 +11,12 @@ class IkouController < ApplicationController
     @user = User.find_by(digest: params[:ikou][:digest])
     #form_forで宛先をシンボルにした場合はparamsにも書いてあげないとデータが迷子になる
     if @user
-      @current_user.digest = @user.digest
+      current_user.digest = @user.digest
       @current_user.save#これ忘れると更新されない
-      @likes = Like.where(user_digest: @user.digest)
-      @likes.each do |like|
-        like.user_digest = @current_user.digest
-        like.save
-      end
-      @posts = Post.where(name: @user.digest)
-      @posts.each do |post|
-        post.name = @current_user.digest
-        post.save
-      end
       redirect_to ikou_end_path
     else
       flash.now[:notice] = "ユーザーデータが存在しません"
       render 'new'
     end
   end
-#コントローラーでポストの情報に手を加えるのでStrongParameterは使えない.送信されてくる情報のみ
 end

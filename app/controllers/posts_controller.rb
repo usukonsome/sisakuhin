@@ -1,6 +1,4 @@
 class PostsController < ApplicationController
-  before_action :current_user
-  before_action :admin
   before_action :correct_user, only: [:edit, :update, :destroy]
 
   def new
@@ -9,8 +7,8 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.new(post_params)
-    @post.name = @current_user.digest
-    @post.user_id = @current_user.id
+    @post.name = current_user.digest
+    #@post.user_id = @current_user.id#仕様変更により使わなくなりました
     if @post.save
       redirect_to root_path
     else
@@ -28,11 +26,11 @@ class PostsController < ApplicationController
   end
 
   def mypost
-    @my_items = Post.where(name: @current_user.digest)
+    @my_items = Post.where(name: current_user.digest)
   end
 
   def favorite
-    @favorite = Like.where(user_digest: @current_user.digest)
+    @favorite = Like.where(user_digest: current_user.digest)
   end
 
   def edit
@@ -61,7 +59,7 @@ private
 
   def correct_user
     @post = Post.find(params[:id])
-    if !current_user?(@post) && @admin.nil?
+    if !current_user?(@post) && admin.nil?
       flash[:notice] = "権限がありません"
       redirect_to root_path
     end

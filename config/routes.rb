@@ -10,7 +10,6 @@ Rails.application.routes.draw do
   resources :likes, only: [:create, :destroy]
   resources :login, only: [:new, :create]
   delete '/logout', to: 'login#destroy'
-  resources :test, only: [:new, :create]
   resources :ikou, only: [:new, :create, :index]#index追加したのはrender直後にブラウザ更新するとルーティングエラー出るため
   get '/ikou/end', to: 'ikou#end'
 end

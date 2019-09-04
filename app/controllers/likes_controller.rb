@@ -1,18 +1,12 @@
 class LikesController < ApplicationController
-  before_action :current_user
 
   def create
     @post = Post.find(params[:id])
-    like = Like.find_by(user_digest: @current_user.digest, post_id: @post.id)
-    if like == nil
-      Like.create(post_id: @post.id,user_digest: @current_user.digest)
-    else
-      既にいいねしてあるよ
-    end
-  end
+    Like.create(post_id: @post.id,user_digest: current_user.digest,user_ip: @current_user.name)
+  end#user_ipを取り込む理由:複数端末からの多重いいねを察知するため(多分ない)
 
   def destroy
     @post = Post.find(params[:id])
-    Like.find_by(user_digest: @current_user.digest, post_id: @post.id).destroy
-  end
+    Like.where(user_digest: current_user.digest, post_id: @post.id).destroy_all
+  end#アカウント移行前後での同一人物によるいいねが稀にかぶる場合があるので重複分も消す
 end

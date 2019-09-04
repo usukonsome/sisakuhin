@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190903053249) do
+ActiveRecord::Schema.define(version: 20190904044912) do
 
   create_table "admins", force: :cascade do |t|
     t.string "pass"
@@ -31,6 +31,7 @@ ActiveRecord::Schema.define(version: 20190903053249) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "user_digest"
+    t.string "user_ip"
     t.index ["post_id"], name: "index_likes_on_post_id"
     t.index ["user_id", "post_id"], name: "index_likes_on_user_id_and_post_id", unique: true
     t.index ["user_id"], name: "index_likes_on_user_id"
