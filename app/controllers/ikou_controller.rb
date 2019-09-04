@@ -11,8 +11,13 @@ class IkouController < ApplicationController
     @user = User.find_by(digest: params[:ikou][:digest])
     #form_forで宛先をシンボルにした場合はparamsにも書いてあげないとデータが迷子になる
     if @user
-      current_user.digest = @user.digest
+      likes = Like.where(user_digest: current_user.digest)
+      @current_user.digest = @user.digest
       @current_user.save#これ忘れると更新されない
+      likes.each do |like|
+        like.user_digest = @current_user.digest
+        like.save
+      end
       cookies.permanent[:digest] = @current_user.digest#重要
       redirect_to ikou_end_path
     else
