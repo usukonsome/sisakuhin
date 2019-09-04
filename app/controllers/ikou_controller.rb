@@ -13,6 +13,7 @@ class IkouController < ApplicationController
     if @user
       current_user.digest = @user.digest
       @current_user.save#これ忘れると更新されない
+      cookies.permanent[:digest] = @current_user.digest#重要
       redirect_to ikou_end_path
     else
       flash.now[:notice] = "ユーザーデータが存在しません"
