@@ -28,4 +28,5 @@ module UsersHelper
   def current_user?(post)
     post.name == current_user.digest
   end
+
 end

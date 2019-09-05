@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
   before_action :correct_user, only: [:edit, :update, :destroy]
+  before_action :walled
 
   def new
     @post = Post.new

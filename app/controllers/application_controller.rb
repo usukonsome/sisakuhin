@@ -3,4 +3,17 @@ class ApplicationController < ActionController::Base
   include UsersHelper
   include LoginHelper
 
+  def walled_user(string)
+    false_ip = ENV["false_ip"]
+    if !false_ip.empty?
+      return true if false_ip.include?(string)
+    end
+  end
+
+  def walled
+    if walled_user(current_user.name)
+      redirect_to root_path
+      flash[:notice] = '現在アクセス制限中です'
+    end
+  end
 end
