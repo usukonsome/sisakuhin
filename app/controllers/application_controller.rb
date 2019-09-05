@@ -4,8 +4,8 @@ class ApplicationController < ActionController::Base
   include LoginHelper
 
   def walled_user(string)
-    false_ip = ENV["false_ip"]
-    if !false_ip.empty?
+    false_ip = ENV["FALSE_IP"]
+    if !false_ip.nil?
       return true if false_ip.include?(string)
     end
   end
