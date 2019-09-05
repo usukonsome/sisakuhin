@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   before_action :correct_user, only: [:edit, :update, :destroy]
-  before_action :walled, only: [:new,:create,:update,:destroy]
+  before_action :walled, only: [:new,:create,:edit,:update,:destroy]
 
   def new
     @post = Post.new
@@ -27,11 +27,11 @@ class PostsController < ApplicationController
   end
 
   def mypost
-    @my_items = Post.where(name: current_user.digest)
+    @my_items = current_user.creating
   end
 
   def favorite
-    @favorite = Like.where(user_digest: current_user.digest)
+    @favorite = current_user.fav
   end
 
   def edit

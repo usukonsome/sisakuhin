@@ -19,4 +19,12 @@ class User < ApplicationRecord
   def authenticated?(remember_token)
     BCrypt::Password.new(remember_digest).is_password?(remember_token)
   end#結局使わない3
+
+  def creating
+    Post.where("name IN (SELECT digest FROM users WHERE digest = :digest)",digest: digest)
+  end
+
+  def fav
+    Like.where("user_digest IN (SELECT digest FROM users WHERE digest = :digest)",digest: digest)
+  end
 end
