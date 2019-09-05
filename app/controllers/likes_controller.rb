@@ -1,4 +1,5 @@
 class LikesController < ApplicationController
+  before_action :walled
 
   def create
     @post = Post.find(params[:id])

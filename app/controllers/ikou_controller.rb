@@ -1,4 +1,5 @@
 class IkouController < ApplicationController
+  before_action :walled, only: :create
 
   def new
   end
