@@ -1,10 +1,8 @@
 class User < ApplicationRecord
   #attr_accessor :remember_token #remenber認証が必要になったら浮上させて
-  #has_many :posts, dependent: :destroy
-  #has_many :likes, dependent: :destroy
 
   def User.digest(string)
-    BCrypt::Password.create(string)#ここをfooに変えてみる
+    BCrypt::Password.create(string)
   end#結局使わない
 
   def User.new_token(integer)

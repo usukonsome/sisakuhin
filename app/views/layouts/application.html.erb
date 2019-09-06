@@ -16,10 +16,9 @@
     <% if admin %>
       <p>管理者モード展開中</p>
     <% end %>
-    <p>(<%= current_user.id %>)</p><%= @current_user.ip %><%#リリースする前にかならず消す%>
     <%= link_to 'top', root_path %>
     <%= link_to '投稿', new_post_path %>
-    <%= link_to '私の作品', mypost_path %>
+    <%= link_to '私の履歴', mypost_path %>
     <%= link_to 'お気に入り',favorite_path %>
     <%= link_to 'お問い合わせ',new_faq_path %>
     <%= link_to 'アカウントの復旧',new_ikou_path %>

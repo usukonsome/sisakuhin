@@ -1,4 +1,11 @@
 <%= form_for(@post) do |f| %>
+<% if @post.errors.any? %>
+<ul>
+  <% @post.errors.full_messages.each do |msg| %>
+    <li><%= msg %></li>
+  <% end %>
+</ul>
+<% end %>
 
 <%= f.file_field :picture, id: :picture_img, accept:'image/jpeg,image/png,image/gif' %>
 <script type="text/javascript">
@@ -21,10 +28,10 @@
 <% if @post.picture.present? %>
   <%= image_tag @post.picture.url, id: :picture_prev %>
 <% else %>
-  <%= image_tag "5b6479af", id: :picture_prev %>
+  <%= image_tag "noimage", id: :picture_prev %>
 <% end %>
 
-<p><%= f.check_box :remove_picture %>画像を削除する</p>
+<p><%= f.check_box :remove_picture %>画像を消す</p>
 
-<%= f.submit "hensyuu" %><%= link_to 'やっぱりやめる', root_path %>
+<%= f.submit "編集完了！" %><%= link_to 'やっぱりやめる', root_path %>
 <% end %>

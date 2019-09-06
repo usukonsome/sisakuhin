@@ -4,7 +4,6 @@
   <%= f.password_field :pass %>
   <%= f.password_field :password %>
   <%= f.submit "log_in" %>
-  <p>答え：なんでここにログインフォームが</p>
 <% end %>
 
-<%= link_to 'log_out', logout_path , method: :delete %>
+<%= link_to 'log_out(管理者用)', logout_path , method: :delete %>

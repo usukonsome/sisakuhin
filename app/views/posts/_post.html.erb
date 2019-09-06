@@ -4,9 +4,9 @@
   <%= render 'posts/like',  post: post%>
 </div>
 <% if current_user?(post) %>
-  <%= link_to 'hen', edit_post_path(post) %>
+  <%= link_to '編', edit_post_path(post) %>
 <% end %>
 <% if current_user?(post) || admin %>
-  <%= link_to '消す', post, method: :delete, data: { confirm: "消すの？"} %>
+  <%= link_to '消', post, method: :delete, data: { confirm: "消すの？"} %>
 <% end %>
-<%= post.created_at %>
+<%= time(post.created_at) %>

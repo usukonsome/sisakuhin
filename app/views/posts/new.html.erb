@@ -21,10 +21,10 @@
 <% if @post.picture.present? %>
   <%= image_tag @post.picture.url, id: :picture_prev %>
 <% else %>
-  <%= image_tag "5b6479af", id: :picture_prev %>
+  <%= image_tag "noimage", id: :picture_prev %>
 <% end %>
 
 
 
-<%= f.submit "toukou" %><%= link_to 'やっぱりやめる', root_path %>
+<%= f.submit "投稿する！" %><%= link_to 'やっぱりやめる', root_path %>
 <% end %>
