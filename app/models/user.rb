@@ -21,7 +21,7 @@ class User < ApplicationRecord
   end#結局使わない3
 
   def creating
-    Post.where("name IN (SELECT digest FROM users WHERE digest = :digest)",digest: digest)
+    Post.where("user_digest IN (SELECT digest FROM users WHERE digest = :digest)",digest: digest)
   end
 
   def fav

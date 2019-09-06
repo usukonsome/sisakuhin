@@ -8,8 +8,7 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.new(post_params)
-    @post.name = current_user.digest
-    #@post.user_id = @current_user.id#仕様変更により使わなくなりました
+    @post.user_digest= current_user.digest
     if @post.save
       redirect_to root_path
     else

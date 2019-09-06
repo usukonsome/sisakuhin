@@ -10,9 +10,9 @@ module UsersHelper
         @current_user = user
       end
     else @current_user.nil?
-      name = request.remote_ip
+      ip = request.remote_ip
       digest = User.new_token(10)
-      user = User.create(name: name,digest: digest)
+      user = User.create(ip: ip,digest: digest)
       session[:user_id] = user.id
       remember(user)
       @current_user = user
@@ -26,7 +26,7 @@ module UsersHelper
   end
 
   def current_user?(post)
-    post.name == current_user.digest
+    post.user_digest == current_user.digest
   end
 
 end

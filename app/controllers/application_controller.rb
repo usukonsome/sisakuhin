@@ -12,7 +12,7 @@ class ApplicationController < ActionController::Base
   end
 
   def walled
-    if walled_user(current_user.name)
+    if walled_user(current_user.ip)
       redirect_to root_path
       flash[:notice] = '現在アクセス制限中です'
     end

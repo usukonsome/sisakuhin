@@ -3,7 +3,7 @@ class LikesController < ApplicationController
 
   def create
     @post = Post.find(params[:id])
-    Like.create(post_id: @post.id,user_digest: current_user.digest,user_ip: @current_user.name)
+    Like.create(post_id: @post.id,user_digest: current_user.digest,user_ip: @current_user.ip)
   end#user_ipを取り込む理由:複数端末からの多重いいねを察知するため(多分ない)
 
   def destroy
