@@ -1,9 +1,7 @@
 <%= form_for(:admin, url:login_index_path) do |f| %>
-
   <%= f.label :admin %>
   <%= f.password_field :pass %>
   <%= f.password_field :password %>
   <%= f.submit "log_in" %>
 <% end %>
-
 <%= link_to 'log_out(管理者用)', logout_path , method: :delete %>

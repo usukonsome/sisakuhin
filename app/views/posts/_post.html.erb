@@ -1,12 +1,10 @@
-<%= link_to image_tag(post.picture.url),post_path(post) if post.picture? %>
-<%= post.content %>
-<div id="post_form_<%= post.id %>">
-  <%= render 'posts/like',  post: post%>
-</div>
-<% if current_user?(post) %>
-  <%= link_to '編', edit_post_path(post) %>
-<% end %>
-<% if current_user?(post) || admin %>
-  <%= link_to '消', post, method: :delete, data: { confirm: "消すの？"} %>
-<% end %>
-<%= time(post.created_at) %>
+<section>
+  <%= link_to image_tag(post.picture.url),post_path(post) if post.picture? %>
+  <%= post.content %>
+  <div id="post_form_<%= post.id %>">
+    <%= render 'posts/like',  post: post%>
+  </div>
+  <%= link_to '編', edit_post_path(post) if current_user?(post) %>
+  <%= link_to '消', post, method: :delete, data: { confirm: "消すの？"} if current_user?(post) || admin %>
+  <%= time(post.created_at) %>
+</section>

@@ -1,4 +1,5 @@
 class PostsController < ApplicationController
+  include ApplicationHelper#viewでは問題ないけどコントローラーで使いたい場合は記述必須
   before_action :correct_user, only: [:edit, :update, :destroy]
   before_action :walled, only: [:new,:create,:edit,:update,:destroy]
 
@@ -48,18 +49,19 @@ class PostsController < ApplicationController
     @post.destroy
     redirect_to root_path#これないとページ更新されない
   end
-end
-
-private
-
-  def post_params
-    params.require(:post).permit(:content,:picture,:remove_picture)
-  end
 
   def correct_user
     @post = Post.find(params[:id])
+    admin
     if !current_user?(@post) && admin.nil?
       flash[:notice] = "権限がありません"
       redirect_to root_path
     end
   end
+
+private
+
+    def post_params
+      params.require(:post).permit(:content,:picture,:remove_picture)
+    end
+end
