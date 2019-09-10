@@ -1,11 +1,13 @@
 <section>
   <h1>お問い合わせはこちらへ</h1>
-  <%= form_for(@faq) do |f| %>
-  <%= f.text_field :content %>
-  <%= f.submit '送る' %>
-  <% end %>
+  <div class="form_faq">
+    <%= form_for(@faq) do |f| %>
+    <%= f.text_field :content %>
+    <%= f.submit '送る' %>
+    <% end %>
+  </div>
 </section>
 <div class="footer_like">
   <p>created by '吉野川さくら'</p>
-  <%= link_to 'twitter', 'https://twitter.com/yosinogawa48' %>
+  <%= link_to 'twitter', 'https://twitter.com/yosinogawa48',target: 'blank' ,id: :twitter%>
 </div>

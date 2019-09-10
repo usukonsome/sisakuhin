@@ -1,4 +1,6 @@
-<% @favorite.each do |fav| %>
-  <% post = Post.find_by(id:fav.post_id) %>
-    <%= render post %>
+<section>
+  <% @favorite.each do |fav| %>
+    <% post = Post.find_by(id:fav.post_id) %>
+    <ul class="main-content"><%= render post %></ul>
   <% end %>
+</section>

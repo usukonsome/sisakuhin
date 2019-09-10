@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190905234736) do
+ActiveRecord::Schema.define(version: 20190910001701) do
 
   create_table "admins", force: :cascade do |t|
     t.string "pass"
@@ -39,16 +39,26 @@ ActiveRecord::Schema.define(version: 20190905234736) do
   create_table "posts", force: :cascade do |t|
     t.string "picture"
     t.text "content"
-    t.string "title"#今のところ使わない
+    t.string "title"
     t.string "user_digest"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_digest"], name: "index_posts_on_user_digest"
   end
 
+  create_table "replies", force: :cascade do |t|
+    t.text "content"
+    t.string "user_digest"
+    t.integer "post_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["post_id"], name: "index_replies_on_post_id"
+    t.index ["user_digest"], name: "index_replies_on_user_digest"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "ip"
-    t.string "remember_digest"#今のところ使わない
+    t.string "remember_digest"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "digest"

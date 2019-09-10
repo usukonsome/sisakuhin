@@ -13,20 +13,24 @@
 
   <body>
     <header>
-      <% flash.each do |message_type, message| %>
-        <%= content_tag(:div, message, class: "alert alert-#{message_type}") %>
-      <% end %>
-      <%= "管理者モード展開中" if admin %>
-      <%= link_to 'top', root_path %>
-      <%= link_to '投稿', new_post_path %>
-      <%= link_to '私の履歴', mypost_path %>
-      <%= link_to 'お気に入り',favorite_path %>
-      <%= link_to 'お問い合わせ',new_faq_path %>
-      <%= link_to 'アカウントの復旧',new_ikou_path %>
-      <%= link_to '管理者用',new_login_path %>
+      <div class="header_list">
+        <% flash.each do |message_type, message| %>
+          <%= content_tag(:div, message, class: "alert alert-#{message_type}") %>
+        <% end %>
+        <%= "管理者モード展開中" if admin %>
+        <%= link_to 'top', root_path %>
+        <%= link_to '投稿', new_post_path %>
+        <%= link_to '私の履歴', mypost_path %>
+        <%= link_to 'お気に入り',favorite_path %>
+        <%= link_to 'お問い合わせ',new_faq_path %>
+        <%= link_to 'アカウントの復旧',new_ikou_path %>
+        <%= link_to '管理者用',new_login_path %>
+      </div>
     </header>
-    <%= yield %>
-    <%= debug(params) if Rails.env.development? %>
+    <body>
+      <%= yield %>
+      <%= debug(params) if Rails.env.development? %>
+    </body>
     <footer>
     </footer>
   </body>

@@ -1,0 +1,6 @@
+  <ul>
+    <li>
+      <%= reply.content%><span class = "replytime"><%= time(reply.created_at) %></span>
+      <%= link_to '消', reply, method: :delete, data: { confirm: "消すの？"} if current_user?(reply) || admin %>
+    </li>
+  </ul>

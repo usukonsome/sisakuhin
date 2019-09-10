@@ -1,4 +1,4 @@
-<section>
+<section class="form">
   <%= form_for(@post) do |f| %>
   <% if @post.errors.any? %>
   <ul>
@@ -29,7 +29,7 @@
   <% if @post.picture.present? %>
     <%= image_tag @post.picture.url, id: :picture_prev %>
   <% else %>
-    <%= image_tag "noimage", id: :picture_prev %>
+    <%= image_tag "noimage", id: :picture_prev,class: :prev%>
   <% end %>
 
   <p><%= f.check_box :remove_picture %>画像を消す</p>
