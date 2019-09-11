@@ -23,7 +23,6 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
-    redirect_to root_path unless @post.picture?
   end
 
   def mypost

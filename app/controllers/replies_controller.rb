@@ -21,6 +21,10 @@ class RepliesController < ApplicationController
     redirect_to root_path
   end
 
+  def myreplies
+    @replies = Reply.where(user_digest: current_user.digest)
+  end
+
   private
 
     def reply_params

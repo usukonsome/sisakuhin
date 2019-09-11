@@ -1,0 +1,10 @@
+<section>
+  <% if @replies %>
+    <% @replies.each do |reply| %>
+      <li class = 'post_content'>
+        <%= link_to reply.content, post_path(reply.post_id) %>
+        <%= time(reply.created_at) %>
+      </li>
+    <% end %>
+  <% end %>
+</section>

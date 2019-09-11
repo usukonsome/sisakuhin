@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   get '/faqs/thanks', to: 'faqs#thanks'
   resources :posts
   resources :replies, only: [:edit, :update, :destroy]
+  get '/myreplies', to: 'replies#myreplies'
   resources :likes, only: [:create, :destroy]
   resources :login, only: [:new, :create]
   delete '/logout', to: 'login#destroy'
