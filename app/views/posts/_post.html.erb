@@ -7,8 +7,10 @@
   <% if @replies = Reply.where(post_id: post.id) %>
     <%= render @replies %>
   <% end %>
+
   <%= link_to 'コメントする', edit_reply_path(post) %>
   <%= link_to '編', edit_post_path(post) if current_user?(post) %>
   <%= link_to '消', post, method: :delete, data: { confirm: "消すの？"} if current_user?(post) || admin %>
   <%= time(post.created_at) %>
+  <hr>
 </li>

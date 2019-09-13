@@ -38,7 +38,8 @@ class PostsController < ApplicationController
 
   def update
     if @post.update_attributes(post_params)
-      redirect_to root_path
+      redirect_to mypost_path
+      flash[:notice] = "編集しました"
     else
       render 'edit'
     end
@@ -48,6 +49,9 @@ class PostsController < ApplicationController
     @post.destroy
     redirect_to root_path#これないとページ更新されない
   end
+
+
+
 
   def correct_user
     @post = Post.find(params[:id])

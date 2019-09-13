@@ -5,7 +5,11 @@ Rails.application.routes.draw do
   resources :faqs, only: [:index, :new, :create]
   get '/faqs/thanks', to: 'faqs#thanks'
   resources :posts
-  resources :replies, only: [:edit, :update, :destroy]
+  resources :replies, only: [:edit, :update, :destroy] do
+    member do
+      get :end
+    end
+  end
   get '/myreplies', to: 'replies#myreplies'
   resources :likes, only: [:create, :destroy]
   resources :login, only: [:new, :create]

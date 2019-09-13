@@ -1,4 +1,8 @@
-<%= link_to 'コメントの履歴', myreplies_path %> 
+<div>
+  <%= link_to 'コメントの履歴', myreplies_path %>
+  <%= link_to 'アカウントの復旧',new_ikou_path %>
+</div>
+<h1>あなたの投稿履歴</h1>
 <section>
   <ul class = "main-content"><%= render @my_items %></ul>
 </section>

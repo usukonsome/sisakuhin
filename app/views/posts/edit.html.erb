@@ -1,5 +1,6 @@
 <section class="form">
   <%= form_for(@post) do |f| %>
+  
   <% if @post.errors.any? %>
   <ul>
     <% @post.errors.full_messages.each do |msg| %>
@@ -25,15 +26,16 @@
       });
     });
   </script>
+
   <%= f.text_area :content %>
+
   <% if @post.picture.present? %>
     <%= image_tag @post.picture.url, id: :picture_prev %>
   <% else %>
     <%= image_tag "noimage", id: :picture_prev,class: :prev%>
   <% end %>
-
   <p><%= f.check_box :remove_picture %>画像を消す</p>
 
-  <%= f.submit "編集完了！" %><%= link_to 'やっぱりやめる', root_path %>
+  <%= f.submit "編集完了！" %><%= link_to 'やっぱりやめる', request.referrer %>
   <% end %>
 </section>
