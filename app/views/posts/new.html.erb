@@ -1,7 +1,6 @@
 <section class="form">
   <%= form_for(@post) do |f| %>
 
-  <%= f.file_field :picture, id: :picture_img, accept:'image/jpeg,image/png,image/gif' %>
   <script type="text/javascript">
     $(function() {
       function readURL(input) {
@@ -19,9 +18,6 @@
     });
   </script>
 
-  <%= f.label :"ここにひとこと" %>
-  <%= f.text_area :content, placeholder: "140文字以内でね"%>
-
   <% if @post.picture.present? %>
     <%= image_tag @post.picture.url, id: :picture_prev, alt: "ここに画像が表示されます" %>
   <% else %>
@@ -29,6 +25,21 @@
     <%#sizeのxは*じゃなくてxです(アルファベット小文字)%>
   <% end %>
 
-  <%= f.submit "投稿する！" %><%= link_to 'やっぱりやめる', request.referrer %>
-  <% end %>
+
+  <div class="file_field hitokoto">
+    <%= f.label :"ここにひとこと" %>
+  </div>
+
+  <div class="file_field textarea">
+    <%= f.text_area :content, placeholder: "140文字以内でね"%>
+  </div>
+
+  <div class="file_field">
+    <%= f.file_field :picture, id: :picture_img, accept:'image/jpeg,image/png,image/gif' %>
+  </div>
+
+  <div class="file_field">
+    <%= f.submit "投稿する！" %><%= link_to 'やっぱりやめる', request.referrer %>
+    <% end %>
+  </div>
 </section>

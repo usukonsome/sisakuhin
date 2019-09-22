@@ -1,42 +1,74 @@
-// ctrl + / でコメントに切り替えられるよ
+// ctrl + / でコメントに切り替えられるよ コメント以外で全角スペース使ったらシンタックスエラー出るよ
+header a,strong a,.main_content a,div a,.show a{
+  text-decoration: none;
+}
+
+
 header{
-  background-color: #b9d9fa;
-  height: 50px;
+  background: center/cover url(heder.jpg) rgba(100,105,110,0.9);
+  height: 200px;
 }
 
-.header_list{
-  padding-top: 25px;
-  align-items: flex-end;
-  padding-left: 10px;
+header nav{
+  // padding-left: 10px;
+  background-color: #918677;
+  width: 100%;
+  height: 35px;
+  box-sizing: border-box;
+  position: fixed;
 }
 
-.kanri_link{
-  float: right;
+header ul{
+  list-style: none;
+  display: flex;
+  text-align: left;
+  float: left;
+}
+
+
+#kanri_link{
+  text-align: right;
 }
 
 body{
   margin: 0;
-  color: #5e6f80;
+  background: #f2f1ed url(koruk.jpg);
+  color: #424c57;
+  font-family: 'Meiryo UI';
+  font-size: 16px;
 }
 
 section{
   margin-top: 50px;
-  margin-left: 30px;
+  margin-left: 50px;
+  width: 750px;
 }
 
-section > h1{
-  margin-bottom: 5px;
+.main-content > li{
+  list-style: inside url(enpituu.png);
+  //type position image(url)
 }
 
-ul {
-  margin-top: 5px
+#reply{
+  list-style: none;
 }
 
-li{
-  margin-left: 0;
+.show{
+  line-height: 1.6;
+  background-color: white;
+  border: 3px solid #f0ebdf;
+  padding:10px;
 }
 
-.post_content img{
+.post_content{
+  line-height: 1.6; //font-sizeの1.6倍
+  background-color: white;
+  border: 3px solid #f0ebdf;
+  margin: 20px 20px 20px 0;
+  padding:10px;
+}
+
+#image img{
   max-width: 400px;
   max-height: 400px;
 }
@@ -46,9 +78,30 @@ li{
   // ここ絶対値で決める
 }
 
-.post_word_show{
+.edit{
   margin-top: 20px;
+}
+
+#post_word{
+  display: inline;
+  font-size: 1.2em;
+}
+
+.post_word_show{
   font-size: 25px;
+}
+
+.file_field{
+  display: block;
+}
+
+.file_field a{
+  text-decoration: none;
+}
+
+textarea{
+  height: 80px;
+  width: 500px;
 }
 
 .ikou span {
@@ -59,9 +112,6 @@ li{
 #picture_prev{
   max-height: 500px;
   max-width: 600px;
-  border-width: 2px;
-  border-style: solid;
-  border-color: gray;
 }
 
 .ikou h2{
@@ -72,8 +122,8 @@ li{
 
 .ikou h3{
   margin-top: 50px;
-  font-weight: normal;
   margin-bottom: 5px;
+  font-weight: normal;
 }
 
 .ikou ul{
@@ -93,4 +143,12 @@ li{
 #twitter{
   padding-top: 15px;
   padding-left: 7px;
+}
+
+aside{
+  text-decoration: underline;
+}
+
+section h4{
+  text-decoration: line-through;
 }
