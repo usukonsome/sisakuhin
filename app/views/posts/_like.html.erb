@@ -1,7 +1,7 @@
 <% if Like.find_by(user_digest: current_user.digest, post_id: post.id) %>
-  <%= link_to("iine!!!",like_path(id: post.id), method: :delete, remote: true) %>
+  <%= link_to(image_tag("unheart.png", height: '16', alt: "いいね"),like_path(id: post.id), method: :delete, remote: true) %>
   <%= post.likes.count %>
 <% else %>
-  <%= link_to("iine?",likes_path(id: post.id), method: :post, remote: true) %>
+  <%= link_to(image_tag("heart.png", height: '16', alt: "いいね"),likes_path(id: post.id), method: :post, remote: true) %>
   <%= post.likes.count %>
 <% end %>

@@ -16,5 +16,6 @@ module NilBoard
     # -- all .rb files in that directory are automatically loaded.
     config.time_zone = 'Tokyo'
     config.action_view.embed_authenticity_token_in_remote_forms = true
+    config.i18n.default_locale = :ja
   end
 end

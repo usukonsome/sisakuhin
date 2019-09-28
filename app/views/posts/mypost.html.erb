@@ -1,5 +1,9 @@
-<%= link_to 'コメントの履歴', myreplies_path %>
-<%= link_to '履歴の復元',new_ikou_path %>
 <h1>あなたの投稿履歴</h1>
-<%= render @my_items %>
+<%= will_paginate @my_items %>
+
+<ul class="main-content">
+  <%= render @my_items %>
+</ul>
+
+<%= will_paginate @my_items %>
 <a href="#">ページ上部へ</a>

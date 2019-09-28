@@ -1,6 +1,6 @@
   <ul>
     <li>
       <%= reply.content%>
-      <%= link_to '消', reply, method: :delete, data: { confirm: "消すの？"} if current_user?(reply) || admin %>
+      <%= link_to "消", reply, method: :delete, data: { confirm: "消すの？"} if current_user?(reply) || admin %>
     </li>
   </ul>

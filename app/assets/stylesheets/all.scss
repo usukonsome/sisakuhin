@@ -1,38 +1,62 @@
 // ctrl + / でコメントに切り替えられるよ コメント以外で全角スペース使ったらシンタックスエラー出るよ
-header a,strong a,.main_content a,div a,.show a{
+.bootstrap{
+  // @import "bootstrap-sprockets";
+  @import "bootstrap";
+  margin-top: 0;
+}
+
+strong a,.main-content a,div a,.show a,.file-field a{
   text-decoration: none;
 }
 
+a {
+  color: #5a48a1;
+}
+a:hover{
+  color: #cbbed1;
+}
+
+  // -------header-------
 
 header{
   background: center/cover url(heder.jpg) rgba(100,105,110,0.9);
   height: 200px;
 }
 
-header nav{
-  // padding-left: 10px;
-  background-color: #918677;
+nav{
+  background-color: #7d7468;
   width: 100%;
   height: 35px;
-  box-sizing: border-box;
   position: fixed;
 }
 
 header ul{
   list-style: none;
   display: flex;
-  text-align: left;
-  float: left;
 }
 
-
-#kanri_link{
-  text-align: right;
+#kanri-link a{
+  float: right;
+  height: 200px;
 }
+
+#notice{
+  position: fixed;
+  width: 100%;
+  background-color: rgba(240,204,122,0.9);
+}
+
+#flash{
+  text-align: center;
+  width: 750px;
+  font-size: 18px;
+}
+
+  // -------body--------
 
 body{
   margin: 0;
-  background: #f2f1ed url(koruk.jpg);
+  background: url(koruk.jpg);
   color: #424c57;
   font-family: 'Meiryo UI';
   font-size: 16px;
@@ -45,68 +69,44 @@ section{
 }
 
 .main-content > li{
-  list-style: inside url(enpituu.png);
-  //type position image(url)
-}
-
-#reply{
   list-style: none;
-}
-
-.show{
-  line-height: 1.6;
-  background-color: white;
-  border: 3px solid #f0ebdf;
-  padding:10px;
-}
-
-.post_content{
-  line-height: 1.6; //font-sizeの1.6倍
-  background-color: white;
-  border: 3px solid #f0ebdf;
-  margin: 20px 20px 20px 0;
-  padding:10px;
 }
 
 #image img{
   max-width: 400px;
   max-height: 400px;
-}
-
-.post_content span{
-  margin-left: 50px;
-  // ここ絶対値で決める
-}
-
-.edit{
-  margin-top: 20px;
-}
-
-#post_word{
-  display: inline;
-  font-size: 1.2em;
-}
-
-.post_word_show{
-  font-size: 25px;
-}
-
-.file_field{
   display: block;
 }
 
-.file_field a{
-  text-decoration: none;
+.post-content{
+  line-height: 1.6; //font-sizeの1.6倍
+  background-color: white;
+  border: 3px solid #f0ebdf;
 }
 
-textarea{
-  height: 80px;
-  width: 500px;
+.pagination{
+  font-size: 20px;
+  margin-top: 0;
 }
 
-.ikou span {
-  font-weight: bold;
-  color: #698;
+.show p{
+  font-size: 25px;
+}
+
+.show span{
+  font-size: 13px;
+}
+
+strong a{
+  color: #584f70;
+}
+
+#comment{
+  list-style: none;
+}
+
+#post-word-top{
+  font-size: 1.2em;
 }
 
 #picture_prev{
@@ -114,41 +114,86 @@ textarea{
   max-width: 600px;
 }
 
-.ikou h2{
+.file-field{
+  display: block;
+}
+
+textarea{
+  height: 80px;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+#ikou span {
+  font-weight: bold;
+  color: #698;
+}
+
+#ikou h1{
   font-weight: normal;
-  font-family: Verdana;
   font-size: 30px;
 }
 
-.ikou h3{
-  margin-top: 50px;
-  margin-bottom: 5px;
+#ikou h2{
   font-weight: normal;
 }
 
-.ikou ul{
+#ikou ul{
   list-style: none;
-  padding-left: 18px;
 }
 
-.form_faq{
+#footer-like{
+  display: flex;
+}
+
+  // -------spacing-------
+
+nav li{
+  margin-right: 20px;
+}
+
+.post-content{
+  padding:15px;
+}
+
+.post-content + li{
+  margin-top: 50px;
+
+}
+
+.show p{
+  margin: 5px 0 2px;
+}
+
+#comment{
+  margin-bottom: 30px;
+}
+
+#notice{
+  margin-top: 35px;
+}
+
+#flash{
+  margin: 0 0 0 25px;
+}
+
+#ikou{
+  margin-bottom: 40px;
+}
+
+#ikou h2{
+  margin: 50px 0 5px;
+}
+
+#ikou dd{
+  margin-left: 18px;
+}
+
+#form-faq{
   margin-bottom: 70px;
 }
 
-.footer_like{
-  display: flex;
-  margin-left: 30px;
-}
-
-#twitter{
+#footer-like a{
   padding-top: 15px;
   padding-left: 7px;
-}
-
-aside{
-  text-decoration: underline;
-}
-
-section h4{
-  text-decoration: line-through;
 }

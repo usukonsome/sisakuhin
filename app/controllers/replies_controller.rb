@@ -10,9 +10,14 @@ class RepliesController < ApplicationController
     if @reply
       @reply.post_id = @post.id
       @reply.user_digest = current_user.digest
-      @reply.save
-      redirect_to end_reply_path
+      if @reply.save
+        redirect_to end_reply_path
+      else
+        flash.now[:notice] = '空欄、または140文字以上のコメントは投稿できないよ'
+        render 'edit'
+      end
     else
+      flash.now[:notice] = '空欄、または140文字以上のコメントは投稿できないよ'
       render 'edit'
     end
   end
@@ -27,7 +32,9 @@ class RepliesController < ApplicationController
   end
 
   def myreplies
-    @replies = Reply.where(user_digest: current_user.digest)
+    @myreplies = Reply.where(user_digest: current_user.digest)
+                .order(created_at: :desc)
+                .paginate(page: params[:page],per_page: 10)
   end
 
   private

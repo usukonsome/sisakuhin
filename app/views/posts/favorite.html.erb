@@ -1,5 +1,11 @@
-<% @favorite.each do |fav| %>
-  <% post = Post.find_by(id:fav.post_id) %>
-  <%= render post %>
-<% end %>
+<%= will_paginate @favorite %>
+
+<ul class="main-content">
+  <% @favorite.each do |fav| %>
+    <% post = Post.find_by(id:fav.post_id) %>
+    <%= render post %>
+  <% end %>
+</ul>
+
+<%= will_paginate @favorite %>
 <a href="#">ページ上部へ</a>

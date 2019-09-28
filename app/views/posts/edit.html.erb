@@ -1,13 +1,5 @@
-<section class="form">
+<div class="post-content">
   <%= form_for(@post) do |f| %>
-
-  <% if @post.errors.any? %>
-  <ul>
-    <% @post.errors.full_messages.each do |msg| %>
-      <li><%= msg %></li>
-    <% end %>
-  </ul>
-  <% end %>
 
   <script type="text/javascript">
     $(function() {
@@ -26,7 +18,7 @@
     });
   </script>
 
-  <div class="file_field">
+  <div class="file-field">
     <% if @post.picture.present? %>
       <%= image_tag @post.picture.url, id: :picture_prev %>
     <% else %>
@@ -34,17 +26,17 @@
     <% end %>
   </div>
 
-  <div class="file_field">
+  <div class="file-field">
     <%= f.file_field :picture, id: :picture_img, accept:'image/jpeg,image/png,image/gif' %>
     <p><%= f.check_box :remove_picture %>画像を消す</p>
   </div>
 
-  <div class="file_field">
+  <div class="file-field">
     <%= f.text_area :content %>
   </div>
 
-  <div class="file_field">
+  <div class="file-field">
     <%= f.submit "編集完了！" %><%= link_to 'やっぱりやめる', request.referrer %>
     <% end %>
   </div>
-</section>
+</div>

@@ -1,9 +1,15 @@
-<section>
-  <% if @replies %>
-    <% @replies.each do |reply| %>
-      <li class = 'post_content'>
+<%= will_paginate @myreplies %>
+
+<ul>
+  <% if @myreplies %>
+    <% @myreplies.each do |reply| %>
+    <li id="comment">
+      <div class="post-content">
         <%= link_to reply.content, post_path(reply.post_id) %>
-      </li>
+      </div>
+    </li>
     <% end %>
   <% end %>
-</section>
+</ul>
+
+<%= will_paginate @myreplies %>

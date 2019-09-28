@@ -1,16 +1,16 @@
-<section class="ikou">
-  <h2>あなたの履歴のIDは<span><%= current_user.digest %></span>です</h2>
-  <h3>この履歴のIDで出来ること</h3>
-  <ul>
-    <li>投稿履歴が消えてしまったり、過去の投稿を編集出来なくなった時に再度IDを入力すると履歴を復元します</li>
-    <li>新規の端末で履歴を共有したい時、新しい端末側にIDを入力すると共有できます（例:ケータイ⇔PC間で履歴共有など)</li>
-  </ul>
-</section>
+<div class="post-content">
+  <div id="ikou">
+    <h1>あなたの履歴のIDは<span><%= current_user.digest %></span>です</h1>
+    <dl>
+      <dt><h2>この履歴のIDで出来ること</h2></dt>
+      <dd>投稿履歴が消えてしまったり、過去の投稿を編集出来なくなった時に再度IDを入力すると履歴を復元します</dd>
+      <dd>新規の端末で履歴を共有したい時、新しい端末側にIDを入力すると共有できます<br>(例:ケータイ⇔PC間で履歴共有など)</dd>
+    </dl>
+  </div>
 
-<section>
   <p>復元したい履歴IDを入力してください</p>
   <%= form_for(:ikou,url: ikou_index_path) do |f| %>
   <%= f.text_field :digest %>
   <%= f.submit '復元する' %>
   <% end %>
-</section>
+</div>

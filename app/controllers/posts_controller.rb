@@ -26,11 +26,11 @@ class PostsController < ApplicationController
   end
 
   def mypost
-    @my_items = current_user.creating
+    @my_items = current_user.creating.paginate(page: params[:page],per_page: 10)
   end
 
   def favorite
-    @favorite = current_user.fav
+    @favorite = current_user.fav.paginate(page: params[:page],per_page: 10)
   end
 
   def edit
@@ -38,9 +38,10 @@ class PostsController < ApplicationController
 
   def update
     if @post.update_attributes(post_params)
-      redirect_to mypost_path
+      redirect_to @post
       flash[:notice] = "編集しました"
     else
+      flash[:notice] = '空欄、または140文字以上の文章は投稿できないよ。あと画像のサイズは5MBまでだよ'
       render 'edit'
     end
   end

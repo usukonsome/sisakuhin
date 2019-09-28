@@ -1,12 +1,12 @@
-<section class="post_content">
-  <div ><%= link_to "戻る", request.referrer %></div>
+<div class="post-content">
+  <%= link_to "戻る", request.referrer %>
   <%= image_tag(@post.picture.url) if @post.picture?%>
-  <div class="post_word_show"><%= @post.content %></div>
+  <div class="post-word"><%= @post.content %></div>
 
   <%= form_for(:reply,url: reply_path, method: :patch) do |f| %>
     <%= hidden_field_tag :post_id, @post.id %>
-    <div><%= f.label :"コメントをどうぞ" %></div>
+    <div class="edit"><%= f.label :"コメントをどうぞ" %></div>
     <%= f.text_area :content %>
     <%= f.submit '送る' %>
   <% end %>
-</section>
+</div>

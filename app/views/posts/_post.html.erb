@@ -1,22 +1,23 @@
-<ul class="main-content">
+<li class = "post-content">
   <%= link_to image_tag(post.picture.url),post_path(post),id: 'image' if post.picture? %>
-  <li class = "post_content">
-    <div id="post_word"><%= link_to post.content, post_path(post) %></div>
+  <div id="post-word-top"><%= link_to post.content, post_path(post) %></div>
 
-    <div id="post_form_<%= post.id %>">
+  <div>
+    <span id="post-form-<%= post.id %>">
       <%= render 'posts/like',  post: post%>
-    </div>
+    </span>
+    <%= link_to image_tag("kome.png", height: '18', alt: "コメントする"), edit_reply_path(post), class: 'icon' %>
+  </div>
 
-    <div id="reply">
-      <% if @replies = Reply.where(post_id: post.id) %>
-      <%= render @replies %>
-      <% end %>
-    </div>
-    <div class="edit">
-      <%= link_to 'コメントする', edit_reply_path(post) %>
-      <%= link_to '編', edit_post_path(post) if current_user?(post) %>
-      <%= link_to '消', post, method: :delete, data: { confirm: "消すの？"} if current_user?(post) || admin %>
-    </div>
-    <footer><%= time(post.created_at) %></footer>
-  </li>
-</ul>
+  <div>
+    <% if @replies = Reply.where(post_id: post.id) %>
+    <%= render @replies %>
+    <% end %>
+  </div>
+
+  <footer>
+    <%= time(post.created_at) %>
+    <%= link_to "編", edit_post_path(post) if current_user?(post) %>
+    <%= link_to "消", post, method: :delete, data: { confirm: "消しますか？"} if current_user?(post) || admin %>
+  </footer>
+</li>
