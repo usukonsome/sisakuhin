@@ -10,7 +10,8 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     @post.user_digest= current_user.digest
-    if @post.save
+    if @post.content
+      @post.save
       redirect_to root_path
     else
       flash[:notice] = '空欄、または140文字以上の文章は投稿できないよ。あと画像のサイズは5MBまでだよ'
