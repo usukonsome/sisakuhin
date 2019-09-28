@@ -13,8 +13,8 @@ class PostsController < ApplicationController
     if @post.save
       redirect_to root_path
     else
-      # flash[:notice] = '画像のサイズは5MBまでだよ'
-      render 'new'
+      flash[:notice] = '空欄、または140文字以上の文章は投稿できないよ。あと画像のサイズは5MBまでだよ'
+      redirect_to new_post_path
     end
   end
 
@@ -41,7 +41,7 @@ class PostsController < ApplicationController
       redirect_to @post
       flash[:notice] = "編集しました"
     else
-      # flash[:notice] = '空欄、または140文字以上の文章は投稿できないよ。あと画像のサイズは5MBまでだよ'
+      flash[:notice] = '空欄、または140文字以上の文章は投稿できないよ。あと画像のサイズは5MBまでだよ'
       render 'edit'
     end
   end

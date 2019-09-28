@@ -24,17 +24,12 @@
     <%#sizeのxは*じゃなくてxです(アルファベット小文字)%>
   <% end %>
 
-  <%# <% if render'new' %>
-    <%# <%= image_tag "noimage", id: :picture_prev, class: :prev, alt: "ここに画像が表示されます" %>
-  <%# <% end %>
-
-
   <div class="file-field">
     <%= f.label :"ここにひとこと" %>
   </div>
 
   <div class="file-field">
-    <%= f.text_area :content %>
+    <%= f.text_area :content, placeholder: "140文字以内でね"%>
   </div>
 
   <div class="file-field">
@@ -42,7 +37,7 @@
   </div>
 
   <div class="file-field">
-    <%= f.submit "投稿する！" %><%= link_to 'やっぱりやめる', request.referrer %>
+    <%= f.submit "投稿する！" %><%= link_to 'やっぱりやめる', root_path %>
     <% end %>
   </div>
 </div>
