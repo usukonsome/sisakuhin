@@ -1,19 +1,30 @@
 // ctrl + / でコメントに切り替えられるよ コメント以外で全角スペース使ったらシンタックスエラー出るよ
+
+$rink-color: #5a48a1;
+
 .bootstrap{
-  // @import "bootstrap-sprockets";
   @import "bootstrap";
   margin-top: 0;
 }
 
-strong a,.main-content a,div a,.show a,.file-field a{
+strong a,.post-content a,div a,.show a,.file-field a,h2 a{
   text-decoration: none;
 }
 
 a {
-  color: #5a48a1;
+  color: $rink-color;
+  &:hover{
+    color: lighten($rink-color,30%);
+  }
 }
-a:hover{
-  color: #cbbed1;
+
+$button-color: #5c6158;
+.button{
+  background: $button-color;
+  color: white;
+  border: solid 4px $button-color;
+  border-radius: 3px;
+  margin: 5px 5px 0 0;
 }
 
   // -------header-------
@@ -21,6 +32,10 @@ a:hover{
 header{
   background: center/cover url(heder.jpg) rgba(100,105,110,0.9);
   height: 200px;
+  ul{
+    list-style: none;
+    display: flex;
+  }
 }
 
 nav{
@@ -28,14 +43,13 @@ nav{
   width: 100%;
   height: 35px;
   position: fixed;
+  padding-top: 25px;
+  li{
+    margin-right: 20px;
+  }
 }
 
-header ul{
-  list-style: none;
-  display: flex;
-}
-
-#kanri-link a{
+header span a{
   float: right;
   height: 200px;
 }
@@ -44,28 +58,33 @@ header ul{
   position: fixed;
   width: 100%;
   background-color: rgba(240,204,122,0.9);
-}
-
-#flash{
-  text-align: center;
-  width: 750px;
-  font-size: 18px;
+  p{
+    width: 750px;
+    text-align: center;
+    font-size: 18px;
+    margin: 0 0 0 25px;
+  }
 }
 
   // -------body--------
 
 body{
-  margin: 0;
   background: url(koruk.jpg);
   color: #424c57;
   font-family: 'Meiryo UI';
   font-size: 16px;
+  margin: 0;
 }
 
 section{
+  width: 750px;
   margin-top: 50px;
   margin-left: 50px;
-  width: 750px;
+}
+
+.pagination{
+  font-size: 20px;
+  margin-top: 0;
 }
 
 .main-content > li{
@@ -82,31 +101,71 @@ section{
   line-height: 1.6; //font-sizeの1.6倍
   background-color: white;
   border: 3px solid #f0ebdf;
+  padding:15px;
+  p{
+    margin: 0;
+  }
+  + li{
+    margin-top: 50px;
+  }
+  > span{
+    font-size: 1.2em;
+  }
 }
 
-.pagination{
-  font-size: 20px;
-  margin-top: 0;
+#post-comment-top-word{
+  font-size: 1.2em;
+  margin-bottom: 15px;
 }
 
-.show p{
-  font-size: 25px;
+.replies{
+  margin-top: 15px;
+  li{
+    list-style: disc;
+  }
+  p{
+    display: inline;
+  }
 }
 
-.show span{
-  font-size: 13px;
+#post-under-heart{
+  margin-top: 15px;
+}
+
+.icon{
+  margin-left: 10px;
+  &:hover{
+    opacity: 0.9;
+  }
+}
+
+.return-top{
+  display: inline-block;
+  margin-top: 20px;
+}
+
+.show{
+  p{
+    margin: 5px 0 2px;
+  }
+  > p{
+    font-size: 25px;
+  }
+  span{
+    font-size: 13px;
+  }
 }
 
 strong a{
-  color: #584f70;
+  color: darken($rink-color,15%);
 }
 
-#comment{
+#replies-log{
   list-style: none;
-}
-
-#post-word-top{
-  font-size: 1.2em;
+  margin-bottom: 30px;
+  p{
+    display: inline;
+  }
 }
 
 #picture_prev{
@@ -116,6 +175,10 @@ strong a{
 
 .file-field{
   display: block;
+  a{
+    font-size: 15px;
+    vertical-align: bottom;
+  }
 }
 
 textarea{
@@ -124,76 +187,46 @@ textarea{
   width: 100%;
 }
 
-#ikou span {
-  font-weight: bold;
-  color: #698;
-}
-
-#ikou h1{
+h2{
   font-weight: normal;
-  font-size: 30px;
-}
-
-#ikou h2{
-  font-weight: normal;
-}
-
-#ikou ul{
-  list-style: none;
-}
-
-#footer-like{
-  display: flex;
-}
-
-  // -------spacing-------
-
-nav li{
-  margin-right: 20px;
-}
-
-.post-content{
-  padding:15px;
-}
-
-.post-content + li{
-  margin-top: 50px;
-
-}
-
-.show p{
-  margin: 5px 0 2px;
-}
-
-#comment{
-  margin-bottom: 30px;
-}
-
-#notice{
-  margin-top: 35px;
-}
-
-#flash{
-  margin: 0 0 0 25px;
+  a{
+    color: #5c6158;
+  }
 }
 
 #ikou{
   margin-bottom: 40px;
+  h1{
+    font-weight: normal;
+    font-size: 30px;
+  }
+  h2{
+    margin: 50px 0 5px;
+  }
+  span {
+    font-weight: bold;
+    color: #698;
+  }
+  ul{
+    list-style: none;
+  }
+  dd{
+    margin-left: 18px;
+  }
 }
 
-#ikou h2{
-  margin: 50px 0 5px;
-}
-
-#ikou dd{
-  margin-left: 18px;
+#ikou-digest{
+  vertical-align: bottom;
 }
 
 #form-faq{
   margin-bottom: 70px;
 }
 
-#footer-like a{
-  padding-top: 15px;
-  padding-left: 7px;
+#footer-like{
+  display: flex;
+  a{
+    padding-top: 15px;
+    padding-left: 7px;
+  }
 }

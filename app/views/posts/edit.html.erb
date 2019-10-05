@@ -36,7 +36,7 @@
   </div>
 
   <div class="file-field">
-    <%= f.submit "編集完了！" %><%= link_to 'やっぱりやめる', request.referrer %>
+    <%= f.button "編集完了！", class: 'button' %><%= link_to 'やっぱりやめる', @post %>
     <% end %>
   </div>
 </div>

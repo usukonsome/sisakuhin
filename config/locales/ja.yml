@@ -38,3 +38,7 @@ ja:
       x_years:
         one: 1年
         other: "%{count}年"
+  will_paginate:
+    previous_label: 前ページ
+    next_label: 次ページ
+    page_gap: ...

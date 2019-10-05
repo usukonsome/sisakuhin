@@ -2,7 +2,7 @@ class PictureUploader < CarrierWave::Uploader::Base
   # Include RMagick or MiniMagick support:
   # include CarrierWave::RMagick
   include CarrierWave::MiniMagick  #for heroku
-  process resize_to_limit: [750,750]  #for heroku
+  process resize_to_limit: [714,750]  #for heroku
 
   # Choose what kind of storage to use for this uploader:
   if Rails.env.production?

@@ -52,19 +52,15 @@
           <p id="flash"><%= flash[:notice] %></p>
         </div>
       <% end %>
-      
-      <span id="kanri-link">
+
+      <span>
         <%= link_to 'in',new_login_path %>
       </span>
     </header>
-
 
     <section>
       <%= yield %>
       <%= debug(params) if Rails.env.development? %>
     </section>
-
-    <footer>
-    </footer>
   </body>
 </html>

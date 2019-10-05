@@ -1,18 +1,23 @@
 <li class = "post-content">
   <%= link_to image_tag(post.picture.url),post_path(post),id: 'image' if post.picture? %>
-  <div id="post-word-top"><%= link_to post.content, post_path(post) %></div>
+  <span><%= link_to simple_format(post.content), post_path(post) %></span>
 
-  <div>
+  <div class='replies'>
+    <% if @replies = Reply.where(post_id: post.id) %>
+      <ul>
+        <%= render @replies %>
+      </ul>
+    <% end %>
+  </div>
+
+  <div id="post-under-heart">
     <span id="post-form-<%= post.id %>">
       <%= render 'posts/like',  post: post%>
     </span>
-    <%= link_to image_tag("kome.png", height: '18', alt: "コメントする"), edit_reply_path(post), class: 'icon' %>
-  </div>
-
-  <div>
-    <% if @replies = Reply.where(post_id: post.id) %>
-    <%= render @replies %>
-    <% end %>
+    <a class="icon" href="<%= edit_reply_path(post) %>">
+      <%= image_tag'kome.png', height: '18', alt: "コメントする" %>
+      コメントする
+    </a>
   </div>
 
   <footer>

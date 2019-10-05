@@ -3,10 +3,10 @@
   <div id="form-faq">
     <%= form_for(@faq) do |f| %>
     <%= f.text_area :content %>
-    <%= f.submit '送る' %>
+    <%= f.button '送る', class: 'button' %>
     <% end %>
   </div>
-  
+
   <h4>よくありそうな質問</h4>
   <dl>
     <dt>質問１</dt>
@@ -22,18 +22,3 @@
   <p>created by '吉野川さくら'</p>
   <%= link_to 'twitter', 'https://twitter.com/yosinogawa48',target: 'blank' %>
 </div>
-
-
-
-<!-- <aside>
-<h6>広告:&lt;br&gt;人生が変わるアルカリイオン水etc...特許出願中商品続々登場！お買い求めはこちらから!!!!!
-  &copy;さくら<br>詳しくはHTML実体参照</h6>
-</aside>
-
-<pre>
-test
-　test
-　　test
-　test
-test
-</pre> -->

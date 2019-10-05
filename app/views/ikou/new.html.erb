@@ -10,7 +10,7 @@
 
   <p>復元したい履歴IDを入力してください</p>
   <%= form_for(:ikou,url: ikou_index_path) do |f| %>
-  <%= f.text_field :digest %>
-  <%= f.submit '復元する' %>
+  <%= f.text_field :digest, id: 'ikou-digest' %>
+  <%= f.button '復元する', class: 'button' %>
   <% end %>
 </div>
