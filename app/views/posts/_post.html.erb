@@ -1,5 +1,5 @@
 <li class = "post-content">
-  <%= link_to image_tag(post.picture.url),post_path(post),id: 'image' if post.picture? %>
+  <%= link_to image_tag(post.picture.url),post_path(post),class: 'image' if post.picture? %>
   <span><%= link_to simple_format(post.content), post_path(post) %></span>
 
   <div class='replies'>
@@ -20,9 +20,9 @@
     </a>
   </div>
 
-  <footer>
-    <%= time(post.created_at) %>
-    <%= link_to "編", edit_post_path(post) if current_user?(post) %>
-    <%= link_to "消", post, method: :delete, data: { confirm: "消しますか？"} if current_user?(post) || admin %>
-  </footer>
+  <%= time(post.created_at) %>
+  <span class="hen-del">
+    <%= link_to "編集する", edit_post_path(post) if current_user?(post) %>
+    <span><%= link_to "消す", post, method: :delete, data: { confirm: "消しますか？"} if current_user?(post) || admin %></span>
+  </span>
 </li>

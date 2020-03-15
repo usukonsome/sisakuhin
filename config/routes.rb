@@ -16,4 +16,5 @@ Rails.application.routes.draw do
   delete '/logout', to: 'login#destroy'
   resources :ikou, only: [:new, :create, :index]#index追加したのはrender直後にブラウザ更新するとルーティングエラー出るため
   get '/ikou/end', to: 'ikou#end'
+  get '/search', to: 'posts#search'
 end

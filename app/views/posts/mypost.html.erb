@@ -1,9 +1,9 @@
 <h1>あなたの投稿履歴</h1>
-<%= will_paginate @my_items %>
+<%= will_paginate @my_items, inner_window: 1, outer_window: 1 %>
 
 <ul class="main-content">
   <%= render @my_items %>
 </ul>
 
-<%= will_paginate @my_items %>
+<%= will_paginate @my_items, inner_window: 1, outer_window: 1 %>
 <a href="#" class="return-top" >ページ上部へ</a>

@@ -6,6 +6,11 @@ class Post < ApplicationRecord
   validates :content, length:{maximum: 140}
   validate :picture_size
 
+  def self.search(search)
+    return self.all unless search
+    self.where(['content LIKE ?', "%#{search}%"])
+  end
+
   private
 
     def picture_size

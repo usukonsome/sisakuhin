@@ -15,7 +15,7 @@ class FaqsController < ApplicationController
       SendingMailMailer.contact.deliver_now
       redirect_to faqs_thanks_path
     else
-      flash.now[:notice] = "用件を入れてね"
+      flash.now[:notice] = "用件を入れて下さい"
       render 'new'
     end
   end

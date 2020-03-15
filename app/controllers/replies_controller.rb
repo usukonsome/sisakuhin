@@ -13,11 +13,11 @@ class RepliesController < ApplicationController
       if @reply.save
         redirect_to end_reply_path
       else
-        flash.now[:notice] = '空欄、または140文字以上のコメントは投稿できないよ'
+        flash.now[:notice] = '空欄、または140文字以上のコメントは投稿出来ません'
         render 'edit'
       end
     else
-      flash.now[:notice] = '空欄、または140文字以上のコメントは投稿できないよ'
+      flash.now[:notice] = '空欄、または140文字以上のコメントは投稿出来ません'
       render 'edit'
     end
   end

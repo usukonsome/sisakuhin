@@ -1,4 +1,5 @@
-<%= will_paginate @favorite %>
+<h1>あなたのお気に入り</h1>
+<%= will_paginate @favorite, inner_window: 1, outer_window: 1 %>
 
 <ul class="main-content">
   <% @favorite.each do |fav| %>
@@ -7,5 +8,5 @@
   <% end %>
 </ul>
 
-<%= will_paginate @favorite %>
+<%= will_paginate @favorite, inner_window: 1, outer_window: 1 %>
 <a href="#" class="return-top" >ページ上部へ</a>

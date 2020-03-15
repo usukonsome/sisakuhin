@@ -14,7 +14,7 @@ class PostsController < ApplicationController
       @post.save
       redirect_to root_path
     else
-      flash[:notice] = '空欄、もしくは140文字以上の文章、5MB以上の画像は投稿できません'
+      flash[:notice] = '空欄、もしくは140文字以上の文章、5MB以上の画像は投稿出来ません'
       redirect_to new_post_path
     end
   end
@@ -52,7 +52,10 @@ class PostsController < ApplicationController
     redirect_to request.referrer
   end
 
-
+  def search
+    posts = Post.search(params[:search])
+    @posts = posts.paginate(page: params[:page],per_page: 10)
+  end
 
 
   def correct_user

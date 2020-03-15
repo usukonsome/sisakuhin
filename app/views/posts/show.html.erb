@@ -2,16 +2,18 @@
 <%= image_tag(@post.picture.url) if @post.picture?%>
   <p><%= simple_format(@post.content) %></p>
 
+  <div class="replies">
   <% if @replies = Reply.where(post_id: @post.id) %>
     <ul>
       <% @replies.each do |reply| %>
       <li>
-        <%= simple_format(reply.content) %><span><%= time_ago_in_words(reply.created_at) %>前</span>
-        <%= link_to "消", reply, method: :delete, data: { confirm: "消しますか？"} if current_user?(reply) || admin %>
+        <%= simple_format(reply.content) %><br><span id="time"><%= time_ago_in_words(reply.created_at) %>前</span>
+        <span class='hen-del'><%= link_to "消", reply, method: :delete, data: { confirm: "消しますか？"} if current_user?(reply) || admin %></span>
       </li>
       <% end %>
     </ul>
   <% end %>
+</div>
 
   <div>
     <span id="post-form-<%= @post.id %>">
@@ -23,9 +25,11 @@
     </a>
   </div>
 
-  <%= time(@post.created_at) %><span><%= time_ago_in_words(@post.created_at) %>前</span>
-  <%= link_to "編", edit_post_path(@post) if current_user?(@post) %>
-  <%= link_to "消", @post, method: :delete, data: { confirm: "消しますか？"} if current_user?(@post) || admin %>
+  <%= time(@post.created_at) %><%= time_ago_in_words(@post.created_at) %>前
+  <div class="hen-del">
+    <%= link_to "編修する", edit_post_path(@post) if current_user?(@post) %>
+    <span><%= link_to "消す", @post, method: :delete, data: { confirm: "消しますか？"} if current_user?(@post) || admin %></span>
+  </div>
 </div>
 
 <hr>

@@ -1,10 +1,20 @@
 // ctrl + / でコメントに切り替えられるよ コメント以外で全角スペース使ったらシンタックスエラー出るよ
 
 $rink-color: #5a48a1;
+$nav-color: #7d7468;
+$icon-color: rgb(228,224,214);
 
 .bootstrap{
   @import "bootstrap";
   margin-top: 0;
+  a{
+    &:hover{
+    text-decoration: none;
+    }
+  }
+  @media (max-width: 800px){
+    padding: 0;
+  }
 }
 
 strong a,.post-content a,div a,.show a,.file-field a,h2 a{
@@ -31,7 +41,20 @@ $button-color: #5c6158;
 
 header{
   background: center/cover url(heder.jpg) rgba(100,105,110,0.9);
+  width: 100%;
   height: 200px;
+  @media (max-width: 800px){
+    height: 95px;
+  }
+  @media (max-width: 600px){
+    height: 60px;
+  }
+  img{
+    height: 35px;
+    @media (max-width: 600px){
+      height: 24px;
+    }
+  }
   ul{
     list-style: none;
     display: flex;
@@ -39,13 +62,31 @@ header{
 }
 
 nav{
-  background-color: #7d7468;
+  background-color: $nav-color;
   width: 100%;
   height: 35px;
   position: fixed;
-  padding-top: 25px;
+  padding-top: 15px;
+  @media (max-width: 600px){
+    height: 30px;
+    padding-top: 5px;
+  }
   li{
     margin-right: 20px;
+    opacity: 0.7;
+    @media (max-width: 800px){
+      margin:0 auto;
+    }
+    &:hover{
+      opacity: 1;
+    }
+  }
+  span{
+    vertical-align: bottom;
+    color: $icon-color;
+    @media (max-width: 350px){
+      display: none;
+    }
   }
 }
 
@@ -56,13 +97,33 @@ header span a{
 
 #notice{
   position: fixed;
+    top: 51px;
   width: 100%;
   background-color: rgba(240,204,122,0.9);
+  @media (max-width: 800px){
+    position: fixed;
+    top: 35px;
+  }
   p{
     width: 750px;
     text-align: center;
     font-size: 18px;
     margin: 0 0 0 25px;
+    @media (max-width: 800px){
+      width: 100%;
+      margin: 0 auto;
+    }
+  }
+}
+
+  // -------footer-------
+
+footer{
+  background-color: $nav-color;
+  height: 80px;
+  text-align: right;
+  a{
+    color: #424c57;
   }
 }
 
@@ -74,12 +135,21 @@ body{
   font-family: 'Meiryo UI';
   font-size: 16px;
   margin: 0;
+  @media (max-width: 600px){
+    font-size: 13px;
+  }
 }
 
 section{
   width: 750px;
   margin-top: 50px;
   margin-left: 50px;
+  min-height: 600px;
+  @media (max-width: 800px){
+    width: 90%;
+    box-sizing: border-box;
+    margin:30px auto;
+  }
 }
 
 .pagination{
@@ -87,14 +157,30 @@ section{
   margin-top: 0;
 }
 
-.main-content > li{
+.main-content{
+  @media (max-width: 800px){
+    padding-left: 0;
+  }
+  > li{
   list-style: none;
+  }
 }
 
-#image img{
+.search-content{
+  margin-bottom: 80px;
+}
+.search-content p{
+  font-weight: bold;
+}
+
+.image img{
   max-width: 400px;
   max-height: 400px;
   display: block;
+  @media (max-width: 800px){
+    max-width: 100%;
+    margin:0 auto;
+  }
 }
 
 .post-content{
@@ -107,6 +193,9 @@ section{
   }
   + li{
     margin-top: 50px;
+    @media (max-width: 600px){
+      margin-top: 35px;
+    }
   }
   > span{
     font-size: 1.2em;
@@ -122,9 +211,16 @@ section{
   margin-top: 15px;
   li{
     list-style: disc;
+    margin-bottom: 10px;
+    line-height: 1.2;
   }
   p{
     display: inline;
+  }
+  @media (max-width: 600px){
+    ul{
+      padding-left: 20px;
+    }
   }
 }
 
@@ -141,7 +237,10 @@ section{
 
 .return-top{
   display: inline-block;
-  margin-top: 20px;
+  margin: 20px 0 100px;
+  @media(max-width: 600px){
+    font-size: 18px;
+  }
 }
 
 .show{
@@ -150,14 +249,44 @@ section{
   }
   > p{
     font-size: 25px;
+    @media (max-width: 350px){
+      font-size: 20px;
+    }
   }
-  span{
-    font-size: 13px;
+  @media (max-width: 800px){
+    img{
+      max-width: 100%;
+    }
+  }
+}
+
+#time{
+  font-size: 11px;
+}
+
+.hen-del{
+  @media (max-width: 800px){
+    font-size: 15px;
+    span{
+      margin-left: 15px;
+    }
   }
 }
 
 strong a{
   color: darken($rink-color,15%);
+  @media (max-width: 800px){
+    font-size: 25px;
+  }
+  @media (max-width: 600px){
+    font-size: 16px;
+  }
+}
+
+#reply-image img{
+  @media (max-width: 800px){
+    max-width: 100%;
+  }
 }
 
 #replies-log{
@@ -171,6 +300,9 @@ strong a{
 #picture_prev{
   max-height: 500px;
   max-width: 600px;
+  @media (max-width: 800px){
+    max-width: 100%;
+  }
 }
 
 .file-field{
@@ -199,6 +331,9 @@ h2{
   h1{
     font-weight: normal;
     font-size: 30px;
+    @media (max-width: 350px){
+      font-size: 25px;
+    }
   }
   h2{
     margin: 50px 0 5px;
@@ -226,7 +361,6 @@ h2{
 #footer-like{
   display: flex;
   a{
-    padding-top: 15px;
     padding-left: 7px;
   }
 }

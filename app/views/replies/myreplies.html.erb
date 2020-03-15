@@ -1,7 +1,7 @@
-<%= will_paginate @myreplies %>
+<%= will_paginate @myreplies, inner_window: 1, outer_window: 1 %>
 
 <% if @myreplies %>
-  <ul>
+  <ul class="main-content">
     <% @myreplies.each do |reply| %>
       <li id="replies-log">
         <div class="post-content">
@@ -12,4 +12,4 @@
   </ul>
 <% end %>
 
-<%= will_paginate @myreplies %>
+<%= will_paginate @myreplies, inner_window: 1, outer_window: 1 %>

@@ -1,4 +1,4 @@
 <li>
   <%= simple_format(reply.content) %>
-  <%= link_to "消", reply, method: :delete, data: { confirm: "消しますか？"} if current_user?(reply) || admin %>
+  <span class="hen-del"><%= link_to "消", reply, method: :delete, data: { confirm: "消しますか？"} if current_user?(reply) || admin %></span>
 </li>

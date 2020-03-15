@@ -1,8 +1,8 @@
-<%= will_paginate @posts %>
+<%= will_paginate @posts, inner_window: 1,outer_window: 1 %>
 
 <ul class="main-content">
   <%= render @posts %>
 </ul>
 
-<%= will_paginate @posts %>
+<%= will_paginate @posts, inner_window: 1, outer_window: 1 %>
 <a href="#" class="return-top" >ページ上部へ</a>

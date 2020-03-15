@@ -3,6 +3,7 @@
   <head>
     <title>NilBoard</title>
     <meta charset="utf-8"><!--海外製ブラウザでの文字化け対策-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <%= favicon_link_tag('favicon.ico') %><!--ブラウザタブに表示されるicon-->
     <%= csrf_meta_tags %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -18,16 +19,19 @@
         <ul class="bootstrap">
 
           <li><a href="<%= root_path %>">
-            <%= image_tag'top.png',height: '35' %>
+            <%= image_tag'top.png' %>
+            <span>TOP</span>
           </a></li>
 
           <li><a href="<%= new_post_path %>">
-            <%= image_tag'toukou.png',height: '34' %>
+            <%= image_tag'toukou.png' %>
+            <span>投稿</span>
           </a></li>
 
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <%= image_tag'rireki.png',height: '35' %>
+              <%= image_tag'rireki.png' %>
+              <span>履歴</span>
             </a>
             <ul class="dropdown-menu">
               <li><%= link_to '投稿履歴', mypost_path %></li>
@@ -38,11 +42,18 @@
           </li>
 
           <li><a href="<%= favorite_path %>">
-            <%= image_tag'heart-logo.png',height: '35' %>
+            <%= image_tag'heart-logo.png' %>
+            <span>お気に入り</span>
+          </a></li>
+
+          <li><a href="<%= search_path %>">
+            <%= image_tag'虫眼鏡アイコン9.png' %>
+            <span>探す</span>
           </a></li>
 
           <li><a href="<%= new_faq_path %>">
-            <%= image_tag'faq.png',height: '35' %>
+            <%= image_tag'faq.png' %>
+            <span>お問い合わせ</span>
           </a></li>
         </ul>
       </nav>
@@ -60,7 +71,11 @@
 
     <section>
       <%= yield %>
-      <%= debug(params) if Rails.env.development? %>
+      <%# <%= debug(params) if Rails.env.development? レスポンシブデザインの邪魔なので消しました %>
     </section>
+    <footer>
+      <p>Copyright &#169; 2019 sakura-yoshingawa All Rights Reserved.<br><a href="https://github.com/usukonsome">github</a>
+      </p>
+    </footer>
   </body>
 </html>

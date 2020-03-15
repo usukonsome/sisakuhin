@@ -1,0 +1,28 @@
+<div class="search-content">
+<p>記事の検索</p>
+<%= form_tag(search_path,:method => "get" ) do %>
+  <%#method =>"get"でurlにsearch情報を入れる。その情報をコントローラーがparamsで受け取る
+  受け取るページをここ(search_path)にしてるので結果がここに帰ってくる%>
+  <%= text_field_tag :search %>
+  <%= submit_tag '探す', :name => nil%><%#, :name => nil でここはurlに表示されなくなる？%>
+<% end %>
+</div>
+
+<%= will_paginate @posts, inner_window: 1, outer_window: 1 %>
+
+<ul class="main-content">
+  <% @posts.each do |post| %>
+    <li id="replies-log">
+      <div class="post-content">
+        <% if post.content.empty? %>
+          <% post.content = "<画像のみ>" %>
+        <% end %>
+        <%= link_to post.content, post %>
+      </div>
+    </li>
+  <% end %>
+</ul>
+
+<%= will_paginate @posts, inner_window: 1, outer_window: 1 %>
+
+<%#method =>"get"の理解%>
