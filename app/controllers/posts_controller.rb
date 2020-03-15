@@ -49,7 +49,7 @@ class PostsController < ApplicationController
 
   def destroy
     @post.destroy
-    redirect_to request.referrer
+    redirect_to root_path
   end
 
   def search
